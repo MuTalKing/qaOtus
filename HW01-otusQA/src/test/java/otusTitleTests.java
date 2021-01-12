@@ -27,7 +27,7 @@ public class otusTitleTests {
         driver.get(cfg.url());
         logger.info("Открыта страница Отуса");
         String actualUrl = driver.getCurrentUrl();
-        logger.info("Проверяем соответствие title страницы");
+        logger.info("Проверяем соответствие URL страницы");
         if(!actualUrl.equals(cfg.url())){
             logger.error("URL страницы не соответствует");
         }
