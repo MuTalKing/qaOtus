@@ -41,9 +41,8 @@ public class otusTitleTests {
         driver.get(cfg.url());
         logger.info("Открыта страница Отуса");
         String actualTitle = driver.getTitle();
-        String expectedTitle = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
         logger.info("Проверяем соответствие title страницы");
-        if(!actualTitle.equals(expectedTitle)){
+        if(!actualTitle.equals(cfg.title())){
             logger.error("Title страницы не соответствует");
         }
         else {
