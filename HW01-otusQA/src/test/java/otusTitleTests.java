@@ -4,6 +4,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -28,11 +29,21 @@ public class otusTitleTests {
         logger.info("Открыта страница Отуса");
         String actualUrl = driver.getCurrentUrl();
         logger.info("Проверяем соответствие URL страницы");
-        if(!actualUrl.equals(cfg.url())){
-            logger.error("URL страницы не соответствует");
+        AssertionError assertionError = null;
+
+        try{
+            Assert.assertEquals(actualUrl, cfg.url());
         }
-        else {
-            logger.info("URL страницы соответствует");
+        catch(AssertionError aEr){
+            assertionError = aEr;
+        }
+        finally{
+            if(assertionError == null){
+                logger.info("URL страницы соответствует");
+            }else{
+                logger.error("URL страницы не соответствует");
+                throw assertionError;
+            }
         }
     }
 
@@ -42,11 +53,21 @@ public class otusTitleTests {
         logger.info("Открыта страница Отуса");
         String actualTitle = driver.getTitle();
         logger.info("Проверяем соответствие title страницы");
-        if(!actualTitle.equals(cfg.title())){
-            logger.error("Title страницы не соответствует");
+        AssertionError assertionError = null;
+
+        try{
+            Assert.assertEquals(actualTitle, cfg.title());
         }
-        else {
-            logger.info("Title страницы соответствует");
+        catch(AssertionError aEr){
+            assertionError = aEr;
+        }
+        finally{
+            if(assertionError == null){
+                logger.info("Title страницы соответствует");
+            }else{
+                logger.error("Title страницы не соответствует");
+                throw assertionError;
+            }
         }
     }
 
