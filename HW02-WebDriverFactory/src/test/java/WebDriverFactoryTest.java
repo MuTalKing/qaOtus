@@ -10,10 +10,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class otusTitleAndURLTests {
+public class WebDriverFactoryTest {
 
     protected static WebDriver driver;
-    private Logger logger = LogManager.getLogger(otusTitleAndURLTests.class);
+    private Logger logger = LogManager.getLogger(WebDriverFactoryTest.class);
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
     @Before

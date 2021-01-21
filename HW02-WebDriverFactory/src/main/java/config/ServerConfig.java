@@ -9,4 +9,13 @@ public interface ServerConfig extends Config {
 
     @Key("title")
     String title();
+
+    @Key("urlYandex")
+    String urlYandex();
+
+    @Key("titleYandex")
+    String titleYandex();
+
+    @Key("urlTele")
+    String urlTele();
 }
