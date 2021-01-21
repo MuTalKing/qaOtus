@@ -32,7 +32,7 @@ public class WebDriverFactoryTest {
         AssertionError assertionError = null;
 
         try{
-            Assert.assertEquals(actualUrl, cfg.url());
+            Assert.assertEquals(cfg.url(), actualUrl);
         }
         catch(AssertionError aEr){
             assertionError = aEr;
