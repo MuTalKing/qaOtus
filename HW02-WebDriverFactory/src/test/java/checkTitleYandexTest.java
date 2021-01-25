@@ -23,12 +23,12 @@ public class checkTitleYandexTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         logger.info("Драйвер поднят");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
     @Test
     public void checkTitleYandex(){
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(cfg.urlYandex());
         logger.info("Открыта страница Яндекса");
         String actualTitle = driver.getTitle();

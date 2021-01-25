@@ -32,8 +32,8 @@ public class SearchTeleNumberTest {
 
     @Test
     public void searchNumber(){
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(cfg.urlTele());
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("searchNumber")));
         logger.info("Открыта страница поиска номеров Теле");
         logger.info("Вводим в строку поиска нужный нам номер и дожидаемся появления номеров");
         driver.findElement(By.id("searchNumber")).sendKeys("97");
