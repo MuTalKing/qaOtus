@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -33,10 +34,10 @@ public class SearchTeleNumberTest {
     @Test
     public void searchNumber(){
         driver.get(cfg.urlTele());
-        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("searchNumber")));
+        WebElement searchField = (new WebDriverWait(driver,10)).until(ExpectedConditions.presenceOfElementLocated(By.id("searchNumber")));
         logger.info("Открыта страница поиска номеров Теле");
         logger.info("Вводим в строку поиска нужный нам номер и дожидаемся появления номеров");
-        driver.findElement(By.id("searchNumber")).sendKeys("97");
+        searchField.sendKeys("97");
         new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.className("area-code")));
 
         AssertionError assertionError = null;
