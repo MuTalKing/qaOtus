@@ -4,10 +4,10 @@ import config.WebDriverFactory;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverFactoryTest {
@@ -16,7 +16,7 @@ public class WebDriverFactoryTest {
     private Logger logger = LogManager.getLogger(WebDriverFactoryTest.class);
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
-    @Before
+    @BeforeAll
     public void setUp() {
         String browserName = System.getProperty("browser");
         driver = WebDriverFactory.createDriver(browserName);
@@ -32,7 +32,7 @@ public class WebDriverFactoryTest {
         AssertionError assertionError = null;
 
         try{
-            Assert.assertEquals(cfg.url(), actualUrl);
+            Assertions.assertEquals(cfg.url(), actualUrl);
         }
         catch(AssertionError aEr){
             assertionError = aEr;
@@ -47,7 +47,7 @@ public class WebDriverFactoryTest {
         }
     }
 
-    @After
+    @AfterAll
     public void setDown(){
         if (driver != null){
             driver.quit();

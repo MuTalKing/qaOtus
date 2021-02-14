@@ -3,10 +3,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +24,7 @@ public class SearchTeleNumberTest {
     private Logger logger = LogManager.getLogger(SearchTeleNumberTest.class);
     private ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
-    @Before
+    @BeforeAll
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -43,7 +43,7 @@ public class SearchTeleNumberTest {
         AssertionError assertionError = null;
 
         try{
-            Assert.assertNotNull(driver.findElement(By.className("area-code")));
+            Assertions.assertNotNull(driver.findElement(By.className("area-code")));
         }
         catch(AssertionError aEr){
             assertionError = aEr;
@@ -58,7 +58,7 @@ public class SearchTeleNumberTest {
         }
     }
 
-    @After
+    @AfterAll
     public void setDown(){
         if (driver != null){
             driver.quit();
