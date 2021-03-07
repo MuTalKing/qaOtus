@@ -26,7 +26,7 @@ public class LoginPageStepDefs {
     }
 
     @Когда("^Нажимаем на кнопку 'Войти'$")
-    public void clickLoginButton(String password){
+    public void clickLoginButton(){
         loginPage.clickLoginButton();
     }
 
