@@ -1,6 +1,7 @@
 package ru.otus.steps;
 
 import io.cucumber.java.ru.Когда;
+import io.cucumber.java.ru.Тогда;
 import ru.otus.page.LoginPage;
 
 import static ru.otus.hooks.BrowserHooks.config;
@@ -36,5 +37,9 @@ public class LoginPageStepDefs {
         loginPage.filLoginField(config.email());
         loginPage.filPasswordField(config.password());
         loginPage.clickLoginButton();
+    }
+    @Тогда("Отображается иконка пользователя")
+    public void checkIcon(){
+        loginPage.checkIcon();
     }
 }
