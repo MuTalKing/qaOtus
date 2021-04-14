@@ -13,6 +13,7 @@
         <module>HW02-WebDriverFactory</module>
         <module>HW03-YandexMarket</module>
         <module>HW04-PageObject</module>
+        <module>HW05-Cucumber</module>
     </modules>
     <dependencies>
         <dependency>
