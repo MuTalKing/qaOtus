@@ -15,6 +15,7 @@
         <module>HW04-PageObject</module>
         <module>HW05-Cucumber</module>
         <module>HW06-RestAssured</module>
+        <module>HW07-Selenoid</module>
     </modules>
     <dependencies>
         <dependency>
